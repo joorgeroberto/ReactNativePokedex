@@ -5,7 +5,7 @@ import {returnId, returnType} from '../../Utils';
 
 const PokemonHomeCard = ({onPress, text, style, data}) => {
   return data && data.name && data.sprites && data.types ? (
-    <TouchableOpacity onPress={() => {console.log('Pressed')}} style={[styles.Container, {style}]}>
+    <TouchableOpacity onPress={onPress} style={[styles.Container, {style}]}>
       <Image
         style={styles.imageStyle}
         source={{
@@ -20,6 +20,7 @@ const PokemonHomeCard = ({onPress, text, style, data}) => {
         <View style={styles.typesContainer}>
           {data.types.map(({type}) =>
             <Image
+              key={`${type.name + data.id}`}
               style={styles.typeImageStyle}
               resizeMode={'contain'}
               source={returnType(type.name)}

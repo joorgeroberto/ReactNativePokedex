@@ -1,6 +1,7 @@
 import {
   Dimensions,
 } from 'react-native';
+import Colors from '../Config/Colors';
 const {width, height} = Dimensions.get('window');
 
 export function capitaliseFirstLetter(string) {
@@ -43,6 +44,32 @@ export function returnType(type) {
     rock: require('../Assets/rock.png'),
     psychic: require('../Assets/psychic.png'),
     steel: require('../Assets/steel.png'),
-  }
+  };
+  return return_object[type];
+}
+
+export function returnBackgroundColor(type) {
+  const return_object = {
+    grass: [Colors.grassBackgroundInitial, Colors.grassBackgroundEnd],
+    normal: [Colors.normalBackgroundInitial, Colors.normalBackgroundEnd],
+    bug: [Colors.bugBackgroundInitial, Colors.bugBackgroundEnd],
+    dark: [Colors.darkBackgroundInitial, Colors.darkBackgroundEnd],
+    dragon: [Colors.dragonBackgroundInitial, Colors.dragonBackgroundEnd],
+    flying: [Colors.flyingBackgroundInitial, Colors.flyingBackgroundEnd],
+
+    fairy: [Colors.fairyBackgroundInitial, Colors.fairyBackgroundEnd],
+    electric: [Colors.electricBackgroundInitial, Colors.electricBackgroundEnd],
+    poison: [Colors.poisonBackgroundInitial, Colors.poisonBackgroundEnd],
+    fire: [Colors.fireBackgroundInitial, Colors.fireBackgroundEnd],
+    water: [Colors.waterBackgroundInitial, Colors.waterBackgroundEnd],
+    fighting: [Colors.fightingBackgroundInitial, Colors.fightingBackgroundEnd],
+
+    ground: [Colors.groundBackgroundInitial, Colors.groundBackgroundEnd],
+    ghost: [Colors.ghostBackgroundInitial, Colors.ghostBackgroundEnd],
+    ice: [Colors.iceBackgroundInitial, Colors.iceBackgroundEnd],
+    rock: [Colors.rockBackgroundInitial, Colors.rockBackgroundEnd],
+    psychic: [Colors.psychicBackgroundInitial, Colors.psychicBackgroundEnd],
+    steel: [Colors.steelBackgroundInitial, Colors.steelBackgroundEnd],
+  };
   return return_object[type];
 }

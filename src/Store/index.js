@@ -8,14 +8,13 @@ import rootReducer from './Reducers';
 const persistConfig = {
   key: 'root',
   storage: FilesystemStorage,
-  whitelist: ['home'],
+  //whitelist: ['home'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = createStore(persistedReducer, {}, applyMiddleware(ReduxThunk));
 
-console.log(FilesystemStorage)
 const persistor = persistStore(store);
 
 export {store, persistor};

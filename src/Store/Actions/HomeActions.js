@@ -40,10 +40,10 @@ export const getData = ({data, navigation}) => {
         });
     }
     if (data && data.length < 1) {
-      console.log('baixou', data)
+      console.log('baixou')
       loadData(data, 1);
     } else {
-      console.log('pulou')
+      console.log('pulou', data)
       dispatch({
         type: GET_DATA_SUCCESS,
         payload: data,
