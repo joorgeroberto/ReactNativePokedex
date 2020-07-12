@@ -3,7 +3,7 @@ import {Animated, View, FlatList} from 'react-native';
 import {styles} from './styles';
 import {Header, PokemonHomeCard} from '../../Components';
 import {connect} from 'react-redux';
-import {getData} from '../../Actions';
+import {getData} from '../../Store/Actions';
 
 const Home = ({navigation, data, loading}) => {
   return (

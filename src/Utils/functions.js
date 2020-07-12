@@ -35,7 +35,7 @@ export function returnType(type) {
     poison: require('../Assets/poison.png'),
     fire: require('../Assets/fire.png'),
     water: require('../Assets/water.png'),
-    fight: require('../Assets/fight.png'),
+    fighting: require('../Assets/fight.png'),
 
     ground: require('../Assets/ground.png'),
     ghost: require('../Assets/ghost.png'),

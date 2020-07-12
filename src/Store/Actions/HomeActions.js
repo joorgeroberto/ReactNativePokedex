@@ -4,8 +4,8 @@ import {
   GET_DATA_FAIL,
 } from './types.js';
 
-import Api from '../Config/Api';
-import {capitaliseFirstLetter, addNumber} from '../Utils';
+import Api from '../../Config/Api';
+import {capitaliseFirstLetter, addNumber} from '../../Utils';
 
 export const getData = ({data, navigation}) => {
   return (dispatch) => {
@@ -23,15 +23,14 @@ export const getData = ({data, navigation}) => {
           let editedData = res.data;
           editedData.name = capitaliseFirstLetter(editedData.name);
           let dispatchData = newData.concat([editedData]);
-          if (newNumber + 1 <= 30) {
+          if (newNumber + 1 <= 151) {
             loadData(dispatchData, newNumber + 1);
           } else {
-            console.log(dispatchData)
+            //console.log(dispatchData)
             dispatch({
               type: GET_DATA_SUCCESS,
               payload: dispatchData,
             });
-
             navigation.navigate('Home');
           }
         })
@@ -40,6 +39,16 @@ export const getData = ({data, navigation}) => {
           dispatch({type: GET_DATA_FAIL});
         });
     }
-    loadData(data, 1);
-  }
+    if (data && data.length < 1) {
+      console.log('baixou', data)
+      loadData(data, 1);
+    } else {
+      console.log('pulou')
+      dispatch({
+        type: GET_DATA_SUCCESS,
+        payload: data,
+      });
+      navigation.navigate('Home');
+    }
+  };
 };

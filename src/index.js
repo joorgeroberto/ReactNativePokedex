@@ -14,33 +14,27 @@ import {
   LogBox,
 } from 'react-native';
 import Routes from './Config/Routes';
-import reducers from './Reducers';
+import {store, persistor} from './Store';
 import {Provider} from 'react-redux';
-import ReduxThunk from 'redux-thunk';
-import {createStore, applyMiddleware} from 'redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 LogBox.ignoreLogs([
   'Warning',
 ]);
 
 const App = () => {
-  const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
   return (
     <>
       <Provider store={store}>
-        <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
-        <SafeAreaView style={{flex: 1}}>
-          <Routes />
-        </SafeAreaView>
+        <PersistGate loading={null} persistor={persistor}>
+          <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
+          <SafeAreaView style={{flex: 1}}>
+            <Routes />
+          </SafeAreaView>
+        </PersistGate>
       </Provider>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: 'white',
-  },
-});
 
 export default App;

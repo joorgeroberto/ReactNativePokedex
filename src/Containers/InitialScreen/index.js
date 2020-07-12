@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {styles} from './styles';
 import {Button} from '../../Components';
-import {getData} from '../../Actions';
+import {getData} from '../../Store/Actions';
 import {connect} from 'react-redux';
 
 const InitialScreen = ({navigation, loading, data, getData}) => {
   let [cont, setCont] = useState(0);
   useEffect(() => {
     getData({number: cont, data: data, navigation: navigation})
-  }, []);
+  }, [data]);
   return (
     loading ? (
     <View style={styles.Container}>
