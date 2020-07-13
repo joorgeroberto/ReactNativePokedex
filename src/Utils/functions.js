@@ -1,8 +1,8 @@
 import {
   Dimensions,
+  Platform,
 } from 'react-native';
 import Colors from '../Config/Colors';
-const {width, height} = Dimensions.get('window');
 
 export function capitaliseFirstLetter(string) {
   let newString = string;
@@ -48,6 +48,32 @@ export function returnType(type) {
   return return_object[type];
 }
 
+export function returnTypeImage(type) {
+  const return_object = {
+    grass: require('../Assets/Tags/grass.png'),
+    normal: require('../Assets/Tags/normal.png'),
+    bug: require('../Assets/Tags/bug.png'),
+    dark: require('../Assets/Tags/dark.png'),
+    dragon: require('../Assets/Tags/dragon.png'),
+    flying: require('../Assets/Tags/flying.png'),
+
+    fairy: require('../Assets/Tags/fairy.png'),
+    electric: require('../Assets/Tags/electric.png'),
+    poison: require('../Assets/Tags/poison.png'),
+    fire: require('../Assets/Tags/fire.png'),
+    water: require('../Assets/Tags/water.png'),
+    fighting: require('../Assets/Tags/fight.png'),
+
+    ground: require('../Assets/Tags/ground.png'),
+    ghost: require('../Assets/Tags/ghost.png'),
+    ice: require('../Assets/Tags/ice.png'),
+    rock: require('../Assets/Tags/rock.png'),
+    psychic: require('../Assets/Tags/psychic.png'),
+    steel: require('../Assets/Tags/steel.png'),
+  };
+  return return_object[type];
+}
+
 export function returnBackgroundColor(type) {
   const return_object = {
     grass: [Colors.grassBackgroundInitial, Colors.grassBackgroundEnd],
@@ -72,4 +98,13 @@ export function returnBackgroundColor(type) {
     steel: [Colors.steelBackgroundInitial, Colors.steelBackgroundEnd],
   };
   return return_object[type];
+}
+
+export const returnFont = (type) => {
+  if(type === 'medium') {
+    return Platform.OS === 'ios' ? 'Avenir-Medium' : 'AvenirLTStd-Medium';
+  }
+  if(type === 'book') {
+    return Platform.OS === 'ios' ? 'Avenir-Book' : 'AvenirLTStd-Book';
+  }
 }

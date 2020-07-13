@@ -23,7 +23,7 @@ export const getData = ({data, navigation}) => {
           let editedData = res.data;
           editedData.name = capitaliseFirstLetter(editedData.name);
           let dispatchData = newData.concat([editedData]);
-          if (newNumber + 1 <= 151) {
+          if (newNumber + 1 <= 30) {
             loadData(dispatchData, newNumber + 1);
           } else {
             //console.log(dispatchData)

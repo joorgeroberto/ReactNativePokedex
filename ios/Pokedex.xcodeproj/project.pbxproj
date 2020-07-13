@@ -20,6 +20,10 @@
 		984A94449547446ADD066F89 /* libPods-Pokedex-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4D85198B7F6AEF6FC0569C /* libPods-Pokedex-tvOS.a */; };
 		C05A94CB32DDC6FCFC3618DD /* libPods-Pokedex-PokedexTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6360259507BC675CFD94B01D /* libPods-Pokedex-PokedexTests.a */; };
 		D632AA4D08705E522409470F /* libPods-Pokedex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0453F97FD28FC6C926510DEF /* libPods-Pokedex.a */; };
+		1887EC23F076431E8F4452CD /* AvenirLTStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F122111D5A9842CA851210FE /* AvenirLTStd-Black.otf */; };
+		1ADAD25A969640DFAEA7B3AA /* AvenirLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6195F479B49C5A9B6B0F1 /* AvenirLTStd-Book.otf */; };
+		5C1D9919BBE74DBDB6A40587 /* AvenirLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32C6BCEB9E6348B1BBFD75ED /* AvenirLTStd-Roman.otf */; };
+		68A6A2CE02204ECDB00A4247 /* AvenirLTStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F608ABB52D15477FBA729D17 /* AvenirLTStd-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F768EEBA3618ACD1528E9993 /* libPods-Pokedex-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pokedex-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F122111D5A9842CA851210FE /* AvenirLTStd-Black.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Black.otf"; path = "../src/Assets/Fonts/AvenirLTStd-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		52B6195F479B49C5A9B6B0F1 /* AvenirLTStd-Book.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Book.otf"; path = "../src/Assets/Fonts/AvenirLTStd-Book.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		32C6BCEB9E6348B1BBFD75ED /* AvenirLTStd-Roman.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Roman.otf"; path = "../src/Assets/Fonts/AvenirLTStd-Roman.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F608ABB52D15477FBA729D17 /* AvenirLTStd-Medium.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Medium.otf"; path = "../src/Assets/Fonts/AvenirLTStd-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +189,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				27B3267C9C5A1F4DF8143826 /* Pods */,
+				F6A9167B01F54A9B8BE1641F /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +206,18 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		F6A9167B01F54A9B8BE1641F /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				F122111D5A9842CA851210FE /* AvenirLTStd-Black.otf */,
+				52B6195F479B49C5A9B6B0F1 /* AvenirLTStd-Book.otf */,
+				32C6BCEB9E6348B1BBFD75ED /* AvenirLTStd-Roman.otf */,
+				F608ABB52D15477FBA729D17 /* AvenirLTStd-Medium.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +363,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				1887EC23F076431E8F4452CD /* AvenirLTStd-Black.otf in Resources */,
+				1ADAD25A969640DFAEA7B3AA /* AvenirLTStd-Book.otf in Resources */,
+				5C1D9919BBE74DBDB6A40587 /* AvenirLTStd-Roman.otf in Resources */,
+				68A6A2CE02204ECDB00A4247 /* AvenirLTStd-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

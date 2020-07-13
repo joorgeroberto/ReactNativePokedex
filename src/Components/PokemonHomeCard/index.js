@@ -15,7 +15,7 @@ const PokemonHomeCard = ({onPress, text, style, data}) => {
       <View style={styles.infoContainer}>
         <View style={styles.nameContainer}>
           <Text style={styles.nameStyle}>{data.name}</Text>
-          <Text style={styles.nameStyle}>{returnId(data.id)}</Text>
+          <Text style={styles.numberStyle}>{returnId(data.id)}</Text>
         </View>
         <View style={styles.typesContainer}>
           {data.types.map(({type}) =>

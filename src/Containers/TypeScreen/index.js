@@ -1,9 +1,18 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {View, Text, BackHandler, Animated, Dimensions} from 'react-native';
 import {styles, Container, ScrollUp, Image} from './styles';
+import {NameContainer, PokemonName} from '../../Components';
 const {width, height} = Dimensions.get('window');
-import {returnBackgroundColor, fadeIn, fadeOut, translateY, scrollUp, scrollDown, panTranslateY} from '../../Utils';
-import { PanGestureHandler, State } from 'react-native-gesture-handler';
+import {
+  returnBackgroundColor,
+  fadeIn,
+  fadeOut,
+  translateY,
+  scrollUp,
+  scrollDown,
+  panTranslateY,
+} from '../../Utils';
+import {PanGestureHandler, State} from 'react-native-gesture-handler';
 
 const TypesScreen = ({navigation, pokemon, loading}) => {
   const [item, setItem] = useState(null);
@@ -58,7 +67,7 @@ const TypesScreen = ({navigation, pokemon, loading}) => {
       panHandler.setOffset(offset);
       panHandler.setValue(0);
 
-      if (translationY >= 200) {
+      if (translationY >= 250) {
         //opened = false;
 
         backButtonHandler();
@@ -67,7 +76,7 @@ const TypesScreen = ({navigation, pokemon, loading}) => {
   }
 
   return item ? (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Animated.View
         style={[
           {
@@ -84,6 +93,9 @@ const TypesScreen = ({navigation, pokemon, loading}) => {
           )}>
         </Container>
       </Animated.View>
+      <PokemonName
+        panHandler={panHandler}
+        name={item.name}/>
       <PanGestureHandler
         onGestureEvent={animatedEvent}
         onHandlerStateChange={onHandlerStateChanged}
@@ -124,7 +136,11 @@ const TypesScreen = ({navigation, pokemon, loading}) => {
               uri: item.sprites.front_default,
             }}
           />
-          {/*<Text>{item.name}</Text>*/}
+          <NameContainer
+            panHandler={panHandler}
+            name={item.name}
+            type={type}
+          />
         </ScrollUp>
       </PanGestureHandler>
     </View>

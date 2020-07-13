@@ -2,7 +2,7 @@ import {
   Dimensions,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
-import {pixelsToScreenPercent} from '../../Utils';
+import {returnFont} from '../../Utils';
 import {StyleSheet} from 'react-native';
 import Colors from '../../Config/Colors';
 
@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 20,
-    fontWeight: '600',
-  }
+    color: Colors.black,
+    fontFamily: returnFont('medium'),
+  },
 });

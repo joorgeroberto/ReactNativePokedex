@@ -1,4 +1,10 @@
 const Colors = {
+  nameColor: '#4F4F4F',
+  numberColor: '#A4A4A4',
+  white: '#ffffff',
+  black: '#000000',
+  searchBarBackground: 'rgba(0,0,0,0.12)',
+
   headerFirst: 'rgba(110, 149, 253, 1)',
   headerSecond: 'rgba(111, 222, 250, 1)',
   headerThird: 'rgba(141, 224, 97, 1)',

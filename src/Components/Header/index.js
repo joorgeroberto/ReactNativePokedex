@@ -3,6 +3,7 @@ import {View, Text, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {styles} from './style';
 import Colors from '../../Config/Colors';
+import {SearchBar} from '../SearchBar';
 
 const Header = ({style}) => {
   const gradientColors = [
@@ -21,8 +22,8 @@ const Header = ({style}) => {
         style={styles.linearGradientContainer}
       />
       <View style={styles.gradientOverlay} />
-
       <Text style={styles.textStyle}>Pokemon</Text>
+      <SearchBar />
     </View>
   );
 };

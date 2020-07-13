@@ -1,8 +1,6 @@
-import {
-  Dimensions,
-} from 'react-native';
-const {width, height} = Dimensions.get('window');
 import {StyleSheet} from 'react-native';
+import {returnFont} from '../../Utils';
+import Colors from '../../Config/Colors';
 
 export const styles = StyleSheet.create({
   Container: {
@@ -23,7 +21,13 @@ export const styles = StyleSheet.create({
   },
   nameStyle: {
     fontSize: 19,
-    fontWeight: '600',
+    fontFamily: returnFont('medium'),
+    color: Colors.nameColor,
+  },
+  numberStyle: {
+    fontSize: 16,
+    fontFamily: returnFont('book'),
+    color: Colors.numberColor,
   },
   typesContainer: {
     justifyContent: 'center',
