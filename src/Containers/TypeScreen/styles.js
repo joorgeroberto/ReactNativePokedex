@@ -5,6 +5,7 @@ import {
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 const {width, height} = Dimensions.get('window');
+import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
 export const styles = StyleSheet.create({
   Container: {
@@ -19,7 +20,7 @@ export const Container = styled(LinearGradient)`
   flex: 1;
 `;
 
-export const Image = styled.Image`
+export const Image = styled(Animated.Image)`
   width: ${height * ((200 * 100) / height / 100)}px;
   height: ${height * ((200 * 100) / height / 100)}px;
   position: absolute;

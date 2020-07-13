@@ -1,18 +1,17 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {View, Text, BackHandler, Animated, Dimensions} from 'react-native';
 import {styles, Container, ScrollUp, Image} from './styles';
-import {Button} from '../../Components';
-import Colors from '../../Config/Colors';
 const {width, height} = Dimensions.get('window');
-import {returnBackgroundColor, fadeIn, fadeOut, translateY, scrollUp, scrollDown} from '../../Utils';
-import {connect} from 'react-redux';
-import {getData} from '../../Store/Actions';
+import {returnBackgroundColor, fadeIn, fadeOut, translateY, scrollUp, scrollDown, panTranslateY} from '../../Utils';
+import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
 const TypesScreen = ({navigation, pokemon, loading}) => {
   const [item, setItem] = useState(null);
   const [type, setType] = useState(null);
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scrollAnim = useRef(new Animated.Value(0)).current;
+  const panHandler = new Animated.Value(0);
+  let offset = 0;
 
 
   function backButtonHandler() {
@@ -37,7 +36,35 @@ const TypesScreen = ({navigation, pokemon, loading}) => {
       setItem(navigation.state.params.item);
       setType(navigation.state.params.item.types[0].type.name);
     }
-  }, [])
+  }, []);
+
+  const animatedEvent = Animated.event(
+    [
+      {
+        nativeEvent: {
+          translationY: panHandler,
+        },
+      },
+    ],
+    { useNativeDriver: true },
+  );
+
+  function onHandlerStateChanged(event) {
+    if (event.nativeEvent.oldState === State.ACTIVE) {
+      const {translationY} = event.nativeEvent;
+      let opened = true;
+      offset += translationY;
+
+      panHandler.setOffset(offset);
+      panHandler.setValue(0);
+
+      if (translationY >= 200) {
+        //opened = false;
+
+        backButtonHandler();
+      }
+    }
+  }
 
   return item ? (
     <View style={{flex: 1}}>
@@ -57,27 +84,52 @@ const TypesScreen = ({navigation, pokemon, loading}) => {
           )}>
         </Container>
       </Animated.View>
-      <ScrollUp
-        style={[
-          [
-            {
-              transform: [{translateY: translateY(scrollAnim)}],
-            },
-          ],
-        ]}>
-        <Image
-          style={styles.imageStyle}
-          source={{
-            uri: item.sprites.front_default,
-          }}
-        />
-        {/*<Text>{item.name}</Text>*/}
-      </ScrollUp>
+      <PanGestureHandler
+        onGestureEvent={animatedEvent}
+        onHandlerStateChange={onHandlerStateChanged}
+        style={{backgroundColor: 'red', flex: 1, width: width, height: height}}
+      >
+        <ScrollUp
+          style={[
+            [
+              {
+                transform: [
+                  {translateY: translateY(scrollAnim)},
+                  {
+                    translateY: panTranslateY(panHandler),
+                  },
+                ],
+              },
+            ],
+          ]}>
+          <Image
+            style={[
+              styles.imageStyle,
+              {
+                transform: [
+                  {
+                    scale: panHandler.interpolate({
+                      inputRange: [-100, 0, 100],
+                      outputRange: [0, 1, 1],
+                    }),
+                  },
+                ],
+                opacity: panHandler.interpolate({
+                  inputRange: [-100, 0, 100],
+                  outputRange: [0, 1, 1],
+                }),
+              },
+            ]}
+            source={{
+              uri: item.sprites.front_default,
+            }}
+          />
+          {/*<Text>{item.name}</Text>*/}
+        </ScrollUp>
+      </PanGestureHandler>
     </View>
   ) : (
-    <View style={styles.Container}>
-      <Text>Loading...</Text>
-    </View>
+    <View style={styles.Container} />
   );
 }
 

@@ -24,26 +24,26 @@ export function returnId(id) {
 
 export function returnType(type) {
   const return_object = {
-    grass: require('../Assets/grass.png'),
-    normal: require('../Assets/normal.png'),
-    bug: require('../Assets/bug.png'),
-    dark: require('../Assets/dark.png'),
-    dragon: require('../Assets/dragon.png'),
-    flying: require('../Assets/flying.png'),
+    grass: require('../Assets/Icons/grass.png'),
+    normal: require('../Assets/Icons/normal.png'),
+    bug: require('../Assets/Icons/bug.png'),
+    dark: require('../Assets/Icons/dark.png'),
+    dragon: require('../Assets/Icons/dragon.png'),
+    flying: require('../Assets/Icons/flying.png'),
 
-    fairy: require('../Assets/fairy.png'),
-    electric: require('../Assets/electric.png'),
-    poison: require('../Assets/poison.png'),
-    fire: require('../Assets/fire.png'),
-    water: require('../Assets/water.png'),
-    fighting: require('../Assets/fight.png'),
+    fairy: require('../Assets/Icons/fairy.png'),
+    electric: require('../Assets/Icons/electric.png'),
+    poison: require('../Assets/Icons/poison.png'),
+    fire: require('../Assets/Icons/fire.png'),
+    water: require('../Assets/Icons/water.png'),
+    fighting: require('../Assets/Icons/fight.png'),
 
-    ground: require('../Assets/ground.png'),
-    ghost: require('../Assets/ghost.png'),
-    ice: require('../Assets/ice.png'),
-    rock: require('../Assets/rock.png'),
-    psychic: require('../Assets/psychic.png'),
-    steel: require('../Assets/steel.png'),
+    ground: require('../Assets/Icons/ground.png'),
+    ghost: require('../Assets/Icons/ghost.png'),
+    ice: require('../Assets/Icons/ice.png'),
+    rock: require('../Assets/Icons/rock.png'),
+    psychic: require('../Assets/Icons/psychic.png'),
+    steel: require('../Assets/Icons/steel.png'),
   };
   return return_object[type];
 }

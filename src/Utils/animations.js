@@ -43,6 +43,13 @@ export const translateY = (fadeAnim) =>
     outputRange: [600, 0],
   });
 
+export const panTranslateY = (panHandler) =>
+  panHandler.interpolate({
+    inputRange: [-350, 0, 380],
+    outputRange: [-100, 0, 380],
+    extrapolate: 'clamp',
+  });
+
 export const menuScale = (fadeAnim) =>
   fadeAnim.interpolate({
     inputRange: [0, 1],
