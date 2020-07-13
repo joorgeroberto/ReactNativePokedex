@@ -33,9 +33,7 @@ const Home = ({navigation, data, loading}) => {
         />
       ) : null}
     </View>
-  ) : (null
-    /*<TypesScreen data={pokemonData} navigation={navigation} setData={setPokemonData} setShow={setShowPokemon}/>*/
-  );
+  ) : null;
 }
 
 const mapStateToProps = (state) => {
